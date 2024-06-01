@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: vivekmanne/ultimate-cicd-pipeline:13
+        image: vivekmanne/ultimate-cicd-pipeline:14
         ports:
         - containerPort: 8080
