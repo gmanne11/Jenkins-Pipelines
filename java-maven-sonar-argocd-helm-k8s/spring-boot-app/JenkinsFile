@@ -49,7 +49,6 @@ pipeline {
         environment {
             GIT_REPO_NAME = "Jenkins-pipelines"
             GIT_USER_NAME = "gmanne11"
-            DOCKER_IMAGE_VERSION = env.BUILD_NUMBER
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
@@ -57,7 +56,7 @@ pipeline {
                     git config user.email "gopim4959@gmail.com"
                     git config user.name "gmanne11"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s|image: vivekmanne/ultimate-cicd-pipeline:.*|image: vivekmanne/ultimate-cicd-pipeline:${DOCKER_IMAGE_VERSION}|" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    sed -i "s|image: vivekmanne/ultimate-cicd-pipeline:.*|image: vivekmanne/ultimate-cicd-pipeline:${BUILD_NUMBER}|" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     cat java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
