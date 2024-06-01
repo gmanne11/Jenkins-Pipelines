@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-boot-app
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: |
+      - container: vivekmanne/ultimate-cicd-pipeline
+        currentDigest: latest
   labels:
     app: spring-boot-app
 spec:
