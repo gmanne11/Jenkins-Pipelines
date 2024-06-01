@@ -9,5 +9,5 @@ WORKDIR /opt/app
 
 COPY ${artifact} app.jar
 
-# This should not be changed
+# This should not be changed as this execute once container starts
 ENTRYPOINT ["java","-jar","app.jar"]
