@@ -5,7 +5,6 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: |
       - container: vivekmanne/ultimate-cicd-pipeline
-        currentDigest: latest
   labels:
     app: spring-boot-app
 spec:
